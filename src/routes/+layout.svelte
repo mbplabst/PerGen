@@ -1,5 +1,6 @@
 <script lang="ts">
   import "../theme.postcss";
+  import "../global.css";
   import "@skeletonlabs/skeleton/styles/skeleton.css";
   import Header from "$lib/header.svelte";
   import Footer from "$lib/footer.svelte";
@@ -12,5 +13,3 @@
   </main>
   <Footer />
 </body>
-
-
