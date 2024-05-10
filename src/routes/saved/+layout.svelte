@@ -7,6 +7,10 @@
   }
 </script>
 
+
+<head>
+  <title>PerGen | Saved</title>
+</head>
 <!-- <h1 class="headline mt-5 mb-5">Gespeicherte Profile</h1> -->
 
 <div class="card p-4 center profile-container variant-ghost">

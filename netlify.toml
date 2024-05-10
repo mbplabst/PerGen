@@ -4,6 +4,7 @@
     functions = "functions/"
 
 [[redirects]]
-  from = "/*"
+  from = "/"
   to = "/home"
   status = 200
+  force = true

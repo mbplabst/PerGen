@@ -6,6 +6,10 @@
   }
 </script>
 
+<head>
+  <title>PerGen | Home</title>
+</head>
+
 <div>
   <h1 id="header">Dein individueller Persöhnlichkeiten Generator</h1>
   <div class="center">
