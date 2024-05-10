@@ -1,6 +1,6 @@
 {
-  "name": "planet",
-  "version": "0.0.1",
+  "name": "pergen",
+  "version": "1.5",
   "private": true,
   "scripts": {
     "dev": "vite dev",

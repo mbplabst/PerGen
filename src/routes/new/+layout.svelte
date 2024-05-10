@@ -1,4 +1,5 @@
-<p>
-  this is new (1)
-  <slot />
-</p>
+<!-- <h1 class="headline mt-5 mb-5">Neues Profil</h1> -->
+<div class="center">
+  <p>create a new profile</p>
+</div>
+<slot />
