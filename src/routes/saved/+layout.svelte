@@ -7,13 +7,15 @@
   }
 </script>
 
-
 <head>
   <title>PerGen | Saved</title>
 </head>
-<!-- <h1 class="headline mt-5 mb-5">Gespeicherte Profile</h1> -->
 
-<div class="card p-4 center profile-container variant-ghost">
+<h2 class="center">Deine gespeicherten Profile</h2>
+
+<div
+  class="card p-4 center profile-container max-width-container variant-ghost"
+>
   {#if savedProfilesAmount == 0}
     <p class="text no-profiles">Keine gespeicherten Profile verfügbar</p>
   {:else if savedProfilesAmount > 0}
@@ -22,7 +24,7 @@
   {/if}
 </div>
 
-<div class="center button-container">
+<div class="center">
   <button
     class="btn variant-ghost-tertiary"
     type="button"
@@ -35,12 +37,8 @@
 <style>
   .profile-container {
     box-shadow: rgba(0, 0, 0, 4) 0px 15px 10px 0px;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-bottom: 50px;
-  }
-
-  .button-container {
-    margin-top: 50px;
   }
 
   button {
@@ -50,20 +48,6 @@
   .no-profiles {
     margin-top: 125px;
     margin-bottom: 125px;
-  }
-
-  @media screen and (min-width: 800px) {
-    .profile-container {
-      margin-left: 200px;
-      margin-right: 200px;
-    }
-  }
-
-  @media screen and (min-width: 1400px) {
-    .profile-container {
-      margin-left: 500px;
-      margin-right: 500px;
-    }
   }
 
   .icon {

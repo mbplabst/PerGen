@@ -1,9 +1,80 @@
+<script lang="ts">
+  import { Stepper, Step } from "@skeletonlabs/skeleton";
+
+  let text = "";
+
+  function toggleHide() {
+    text = "NEW PROFILE CREATED";
+  }
+
+  function toggleFinished() {
+    text = "profile creation is unfinished";
+  }
+
+  toggleFinished();
+</script>
+
 <head>
   <title>PerGen | New Profile</title>
 </head>
 
-<!-- <h1 class="headline mt-5 mb-5">Neues Profil</h1> -->
-<div class="center">
-  <p>create a new profile</p>
+<h2 class="center">Erstelle hier ein neues Profil</h2>
+
+<div class="card p-4 container variant-soft">
+  <Stepper
+    on:complete={toggleHide}
+    on:back={toggleFinished}
+    badge="variant-filled-surface"
+    buttonNext="variant-ghost-primary"
+    buttonNextLabel="Weiter"
+    buttonBack="variant-ghost"
+    buttonBackLabel="Zurück"
+    buttonComplete="variant-filled-primary"
+    buttonCompleteLabel="Abschließen"
+  >
+    <Step>
+      <svelte:fragment slot="header">un</svelte:fragment>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, delectus nobis
+      officia qui quam sunt accusamus perspiciatis ipsa.
+    </Step>
+    <Step>
+      <svelte:fragment slot="header">deux</svelte:fragment>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, delectus nobis
+      officia qui quam sunt accusamus perspiciatis ipsa.
+    </Step>
+    <Step>
+      <svelte:fragment slot="header">trois</svelte:fragment>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, delectus nobis
+      officia qui quam sunt accusamus perspiciatis ipsa.
+    </Step>
+    <Step>
+      <svelte:fragment slot="header">quatre</svelte:fragment>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, delectus nobis
+      officia qui quam sunt accusamus perspiciatis ipsa.
+      <br />
+      <hr />
+      {text}
+    </Step>
+  </Stepper>
 </div>
+
+<div class="center container hide" id="final">
+  <p>Neues Profil erstellt</p>
+</div>
+
 <slot />
+
+<style>
+  .card {
+    color: aliceblue;
+    box-shadow: rgb(0, 0, 0) 0px 5px 5px 0px !important;
+  }
+
+  .container {
+    margin-top: 25px;
+  }
+
+  .hide {
+    display: none;
+  }
+</style>

@@ -12,7 +12,7 @@
 
 <div>
   <h1 id="header">Dein individueller Persöhnlichkeiten Generator</h1>
-  <div class="center">
+  <div class="center max-width-container">
     <p class="subtitle">
       Du gibst dich im Internet häufig als jemand anderes aus? Dann ist dieses
       Tool genau das richtige für dich! Denn nur hier bekommst du die
