@@ -27,6 +27,7 @@
     font-size: 28px;
     font-family: "Rowdies", sans-serif;
     font-weight: 700;
+    letter-spacing: 2px;
   }
 
   header {

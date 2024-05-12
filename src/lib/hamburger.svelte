@@ -22,5 +22,5 @@
 <Drawer>this is content</Drawer>
 
 <button type="button" class="btn p-0" on:click={openDrawer}>
-  <i class="fa-solid fa-bars fa-2xl"></i>
+  <i class="fa-solid fa-bars fa-xl"></i>
 </button>
