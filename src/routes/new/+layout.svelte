@@ -1,18 +1,5 @@
 <script lang="ts">
   import { Stepper, Step } from "@skeletonlabs/skeleton";
-
-  let text = "";
-
-  function toggleHide() {
-    text = "NEW PROFILE CREATED";
-    alert(text);
-  }
-
-  function toggleFinished() {
-    text = "profile creation is unfinished";
-  }
-
-  toggleFinished();
 </script>
 
 <head>
@@ -21,16 +8,14 @@
 
 <h2 class="center">Erstelle hier ein neues Profil</h2>
 
-<div class="card p-4 container variant-soft">
+<div class="card p-4 container">
   <Stepper
-    on:complete={toggleHide}
-    on:back={toggleFinished}
     badge="variant-filled-surface"
-    buttonNext="variant-ghost-primary"
+    buttonNext="variant-filled-primary"
     buttonNextLabel="Weiter"
-    buttonBack="variant-ghost"
+    buttonBack="variant-soft-tertiary"
     buttonBackLabel="Zurück"
-    buttonComplete="variant-filled-primary"
+    buttonComplete="variant-ghost-primary"
     buttonCompleteLabel="Abschließen"
   >
     <Step>
@@ -52,15 +37,8 @@
       <svelte:fragment slot="header">quatre</svelte:fragment>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, delectus nobis
       officia qui quam sunt accusamus perspiciatis ipsa.
-      <br />
-      <hr />
-      {text}
     </Step>
   </Stepper>
-</div>
-
-<div class="center container hide" id="final">
-  <p>Neues Profil erstellt</p>
 </div>
 
 <slot />
@@ -73,9 +51,5 @@
 
   .container {
     margin-top: 25px;
-  }
-
-  .hide {
-    display: none;
   }
 </style>

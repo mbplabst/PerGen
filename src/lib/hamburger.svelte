@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { LightSwitch } from "@skeletonlabs/skeleton";
-
   function openNav() {
     let sidenav = document.getElementById("mySidenav");
     if (sidenav == null) {
@@ -29,8 +27,6 @@
       <i class="fa-solid fa-square-xmark fa-lg"></i>
     </button>
   </div>
-
-  <hr class="!border-t-2" />
 
   <div class="main-container">
     <nav class="list-nav links-container">
@@ -67,8 +63,6 @@
       </ul>
     </nav>
     <hr class="!border-t-2" />
-
-    <!-- <div class="center"><LightSwitch /> Vorsicht!</div> -->
   </div>
   <div class="footer">Build Version 1.5.2<br />Updated May 12, 2024</div>
 </div>
@@ -81,7 +75,7 @@
     left: 0;
     width: 0;
     z-index: 1;
-    background-color: #0a0a0a;
+    background-color: rgb(13, 13, 13);
     overflow-x: hidden;
     transition: 0.35s;
     box-shadow: 6px 0px 8px 0 rgba(0, 0, 0, 0.4);
@@ -90,8 +84,8 @@
   .top-container {
     display: flex;
     justify-content: space-between;
-    padding: 16px;
-    background-color: rgb(7, 7, 7);
+    padding: 15px;
+    background-color: rgb(5, 5, 5);
   }
 
   .footer {
@@ -104,8 +98,8 @@
 
   #title {
     font-weight: 900;
-    font-size: 20px;
-    margin-left: 30px;
+    font-size: 22px;
+    margin-left: 35px;
   }
 
   ul {
