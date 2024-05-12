@@ -11,11 +11,11 @@
 <div class="card p-4 container">
   <Stepper
     badge="variant-filled-surface"
-    buttonNext="variant-filled-primary"
+    buttonNext="variant-ghost-primary"
     buttonNextLabel="Weiter"
     buttonBack="variant-soft-tertiary"
     buttonBackLabel="Zurück"
-    buttonComplete="variant-ghost-primary"
+    buttonComplete="variant-filled-primary"
     buttonCompleteLabel="Abschließen"
   >
     <Step>

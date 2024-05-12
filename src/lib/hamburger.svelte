@@ -55,7 +55,7 @@
     <nav class="list-nav links-container">
       <ul>
         <li>
-          <a href="/" on:click={closeNav}>
+          <a href="/settings" on:click={closeNav}>
             <i class="fa-solid fa-gear icon"></i>
             <span class="flex-auto">Settings</span>
           </a>
@@ -97,7 +97,7 @@
   }
 
   #title {
-    font-weight: 900;
+    font-weight: 800;
     font-size: 22px;
     margin-left: 35px;
   }
