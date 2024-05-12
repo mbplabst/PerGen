@@ -1,5 +1,4 @@
 <script>
-  import { LightSwitch } from "@skeletonlabs/skeleton";
   import { goto } from "$app/navigation";
 
   function linkCreateNew() {
@@ -29,7 +28,6 @@
       <i class="fa-solid fa-arrow-up-right-from-square icon"></i>
     </button>
   </div>
-  <LightSwitch />
   <slot></slot>
 </div>
 

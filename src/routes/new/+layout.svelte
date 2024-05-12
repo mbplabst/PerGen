@@ -5,6 +5,7 @@
 
   function toggleHide() {
     text = "NEW PROFILE CREATED";
+    alert(text);
   }
 
   function toggleFinished() {

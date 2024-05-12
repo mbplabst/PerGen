@@ -3,8 +3,8 @@
 </script>
 
 <footer>
-  <AppBar gridColumns="grid-cols-1" slotDefault="place-self-center" background="bg-secondary-100 dark:bg-secondary-500">
-    <p>powered by lachsfich.dev - v1.5.2</p>
+  <AppBar gridColumns="grid-cols-1" slotDefault="place-self-center">
+    <p>© lachsfich.dev - Version 1.5.2</p>
   </AppBar>
 </footer>
 
@@ -12,5 +12,8 @@
   footer {
     font-weight: 300;
     font-size: 15px;
+    box-shadow:
+      0 -8px 8px 0 rgba(0, 0, 0, .4),
+      0 20px 20px 0 rgba(0, 0, 0, 0);
   }
 </style>
