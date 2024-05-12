@@ -4,7 +4,7 @@
 
 <footer>
   <AppBar gridColumns="grid-cols-1" slotDefault="place-self-center">
-    <p>© lachsfich.dev - Version 1.5.2</p>
+    <p>© lachsfich.dev, 2024</p>
   </AppBar>
 </footer>
 
