@@ -20,15 +20,13 @@
   </AppBar>
 </header>
 
-<!-- <div background="bg-secondary-500 md:bg-primary-500">Skeleton</div> -->
-
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap");
 
   #title {
-    font-size: 25px;
+    font-size: 28px;
     font-family: "Rowdies", sans-serif;
-    font-weight: 300;
+    font-weight: 700;
   }
 
   header {
