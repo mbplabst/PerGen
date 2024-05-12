@@ -30,6 +30,8 @@
     </button>
   </div>
 
+  <hr class="!border-t-2" />
+
   <div class="main-container">
     <nav class="list-nav links-container">
       <ul>
@@ -66,16 +68,13 @@
     </nav>
     <hr class="!border-t-2" />
 
-    <div class="center"><LightSwitch /> Vorsicht!</div>
+    <!-- <div class="center"><LightSwitch /> Vorsicht!</div> -->
   </div>
   <div class="footer">Build Version 1.5.2<br />Updated May 12, 2024</div>
 </div>
 
 <style>
   .sidenav {
-    display: flex;
-    flex-direction: column;
-    background-attachment: fixed;
     min-height: 100vh;
     position: fixed;
     top: 0;
@@ -85,6 +84,7 @@
     background-color: #0a0a0a;
     overflow-x: hidden;
     transition: 0.35s;
+    box-shadow: 6px 0px 8px 0 rgba(0, 0, 0, 0.4);
   }
 
   .top-container {
@@ -94,22 +94,18 @@
     background-color: rgb(7, 7, 7);
   }
 
-  .main-container {
-    flex: 1;
-  }
-
   .footer {
     text-align: center;
     font-weight: 200;
     font-size: 12px;
     padding: 15px;
-    background-color: rgb(7, 7, 7);
     line-height: 13px;
   }
 
   #title {
-    font-weight: 400;
+    font-weight: 900;
     font-size: 20px;
+    margin-left: 30px;
   }
 
   ul {
@@ -123,11 +119,11 @@
   }
 
   hr {
-    border-radius: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     border-color: rgb(51, 51, 51) !important;
   }
 </style>
