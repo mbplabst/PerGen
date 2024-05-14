@@ -64,7 +64,10 @@
     </nav>
     <hr class="!border-t-2" />
   </div>
-  <div class="footer">Build Version 1.5.2<br />Updated May 12, 2024</div>
+  <div class="footer">
+    Build Version 1.5.3<br />Updated May 14, 2024
+    <br />Powered by <a href="https://lachsfich.de" id="lachsfich">lachsfich.de</a>
+  </div>
 </div>
 
 <style>
@@ -119,5 +122,9 @@
     margin-top: 8px;
     margin-bottom: 8px;
     border-color: rgb(51, 51, 51) !important;
+  }
+
+  #lachsfich {
+    color: rgb(196, 70, 70);
   }
 </style>
