@@ -45,7 +45,7 @@
     lockedState = true;
   }
 
-  function complete() {
+  function onComplete() {
     alert(
       "Das hast du dein Profil: " +
         { gender } +
@@ -80,7 +80,7 @@
     buttonCompleteLabel="Abschließen"
     on:next={lock}
     on:back{lock}
-    on:complete{complete}
+    on:complete{onComplete}
   >
     <Step locked={lockedState}>
       <svelte:fragment slot="header">Geschlecht</svelte:fragment>
