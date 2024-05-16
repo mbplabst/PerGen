@@ -6,6 +6,7 @@
   import { surNameList } from "./data/surnames.js";
   import { hobbyList } from "./data/hobbys.js";
   import { characteristicList } from "./data/characteristics.js";
+  import { extrasList } from "./data/extras.js";
 
   const nameNotAvailable = "-/-";
 
@@ -17,7 +18,7 @@
   let age = nameNotAvailable;
   let hobbys = nameNotAvailable;
   let characteristics = nameNotAvailable;
-  let additions = nameNotAvailable;
+  let extras = nameNotAvailable;
 
   // ------- GENDER ------- //
 
@@ -108,6 +109,24 @@
 
   function confirmCharacteristics() {
     if (characteristics == nameNotAvailable) {
+      return;
+    }
+    unlock();
+  }
+
+  // ------- EXTRAS ------- //
+
+  function getRandomExtras() {
+    const randomIndex = Math.floor(Math.random() * extrasList.length);
+    extras = extrasList[randomIndex];
+  }
+
+  function resetExtras() {
+    extras = nameNotAvailable;
+  }
+
+  function confirmExtras() {
+    if (extras == nameNotAvailable) {
       return;
     }
     unlock();
@@ -269,15 +288,9 @@
       <hr class="!border-t-2" />
     </Step>
 
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
+    <!-- // ------- CHARACTERISTICS ------- // -->
+    <!-- // ------- CHARACTERISTICS ------- // -->
+    <!-- // ------- CHARACTERISTICS ------- // -->
 
     <Step locked={lockedState}>
       <svelte:fragment slot="header">Eigenschaften</svelte:fragment>
@@ -309,41 +322,51 @@
       </div>
       <hr class="!border-t-2" />
     </Step>
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
+
+    <!-- // ------- EXTRAS ------- // -->
+    <!-- // ------- EXTRAS ------- // -->
+    <!-- // ------- EXTRAS ------- // -->
+
     <Step locked={lockedState}>
       <svelte:fragment slot="header">Sonstiges</svelte:fragment>
-      <button class="btn variant-ghost-warning" on:click={unlock}>
-        präventiv weiter
-      </button>
-      <hr />
+      <div class="selected">
+        <p>{extras}</p>
+      </div>
+      <div class="button-group">
+        <button
+          class="btn btn-sm variant-ghost-secondary"
+          on:click={getRandomExtras}
+        >
+          <i class="fa-solid fa-shuffle mr-2 random"></i>
+          Random
+        </button>
+        <button
+          class="btn btn-sm variant-ghost-secondary"
+          on:click={resetExtras}
+        >
+          <i class="fa-solid fa-trash-can mr-2 reset"></i>
+          Reset
+        </button>
+        <button
+          class="btn btn-sm variant-ghost-secondary"
+          on:click={confirmExtras}
+        >
+          <i class="fa-solid fa-check mr-2 confirm"></i>
+          Confirm
+        </button>
+      </div>
+      <hr class="!border-t-2" />
     </Step>
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
   </Stepper>
 </div>
 
 <center class="m-8">
-  <p>Gender: {gender}</p>
+  <p>Geschlecht: {gender}</p>
   <p>Name: {preName} {surName}</p>
-  <p>Age: {age}</p>
+  <p>Alter: {age}</p>
   <p>Hobbys: {hobbys}</p>
-  <p>Characteristics: {characteristics}</p>
-  <p>Additionally: {additions}</p>
+  <p>Eigenschaften: {characteristics}</p>
+  <p>Sonstiges: {extras}</p>
 </center>
 <slot />
 

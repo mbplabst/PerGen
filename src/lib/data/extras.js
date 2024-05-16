@@ -1,0 +1,1 @@
+export const extrasList = ["gay 1", "gay 2", "gay 3"]
