@@ -81,15 +81,15 @@
 
   function getRandomHobby() {
     const randomIndex = Math.floor(Math.random() * hobbyList.length);
-    hobby = hobbyList[randomIndex];
+    hobbys = hobbyList[randomIndex];
   }
 
   function resetHobbys() {
-    hobby = nameNotAvailable;
+    hobbys = nameNotAvailable;
   }
 
   function confirmHobbys() {
-    if (hobby == nameNotAvailable) {
+    if (hobbys == nameNotAvailable) {
       return;
     }
     unlock();
@@ -99,15 +99,15 @@
 
   function getRandomCharacteristics() {
     const randomIndex = Math.floor(Math.random() * characteristicList.length);
-    characteristic = characteristicList[randomIndex];
+    characteristics = characteristicList[randomIndex];
   }
 
   function resetCharacteristics() {
-    characteristic = nameNotAvailable;
+    characteristics = nameNotAvailable;
   }
 
   function confirmCharacteristics() {
-    if (characteristic == nameNotAvailable) {
+    if (characteristics == nameNotAvailable) {
       return;
     }
     unlock();
@@ -241,7 +241,7 @@
     <Step locked={lockedState}>
       <svelte:fragment slot="header">Hobbys</svelte:fragment>
       <div class="selected">
-        <p>{hobby}</p>
+        <p>{hobbys}</p>
       </div>
       <div class="button-group">
         <button
