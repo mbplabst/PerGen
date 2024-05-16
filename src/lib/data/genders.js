@@ -1,0 +1,1 @@
+export const genderList = ["Männlich", "Weiblich", "Divers"]
