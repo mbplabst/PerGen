@@ -65,8 +65,13 @@
     <hr class="!border-t-2" />
   </div>
   <div class="footer">
-    Build Version 1.5.3<br />Updated May 14, 2024
-    <br />Powered by <a href="https://lachsfich.de" id="lachsfich">lachsfich.de</a>
+    Build Version 1.5.4<br />
+    Updated May 16, 2024<br />
+    Powered by <a href="https://lachsfich.de" id="lachsfich">lachsfich.de</a>
+    <br />
+    <br />
+    Contributors:
+    <br /> <span id="contributors">@fruchtea</span>, <span id="contributors">@im_gone_</span>
   </div>
 </div>
 
@@ -126,5 +131,9 @@
 
   #lachsfich {
     color: rgb(196, 70, 70);
+  }
+
+  #contributors {
+    color: cadetblue;
   }
 </style>
