@@ -12,7 +12,6 @@
   const nameNotAvailable = "-/-";
 
   let lockedState = true;
-  let visible = false;
 
   let gender = nameNotAvailable;
   let preName = nameNotAvailable;
@@ -24,7 +23,6 @@
 
   function onCompleteHandler() {
     alert("finished");
-    visible = true;
   }
 
   // ------- GENDER ------- //
@@ -338,33 +336,29 @@
     <!-- // ------- EXTRAS ------- // -->
 
     <Step locked={lockedState}>
-      <svelte:fragment slot="header">Sonstiges</svelte:fragment>
-      <div class="selected">
-        <p>{extras}</p>
-      </div>
-      <div class="button-group">
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={getRandomExtras}
-        >
-          <i class="fa-solid fa-shuffle mr-2 random"></i>
-          Random
-        </button>
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={resetExtras}
-        >
-          <i class="fa-solid fa-trash-can mr-2 reset"></i>
-          Reset
-        </button>
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={confirmExtras}
-        >
-          <i class="fa-solid fa-check mr-2 confirm"></i>
-          Confirm
-        </button>
-      </div>
+      <svelte:fragment slot="header">Zusammenfassung</svelte:fragment>
+
+      <center>
+        <h2>Diese Person hast du neu erschaffen:</h2>
+
+        <br />
+        Name: {preName}
+        {surName}
+        <br />
+        Geschlecht : {gender}
+        <br />
+        Alter: {age} Jahre
+        <br />
+        Hobbys: {hobbys}
+        <br />
+        Eigenschaften: {characteristics}
+
+        <div>
+          <button class="btn variant-ghost-success mt-5 mr-3">Speichern</button>
+          <button class="btn variant-ghost-primary mt-5 ml-3">Löschen</button>
+        </div>
+      </center>
+
       <hr class="!border-t-2" />
     </Step>
   </Stepper>
