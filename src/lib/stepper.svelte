@@ -7,7 +7,6 @@
   import { surNameList } from "./data/surnames.js";
   import { hobbyList } from "./data/hobbys.js";
   import { characteristicList } from "./data/characteristics.js";
-  import { extrasList } from "./data/extras.js";
 
   const nameNotAvailable = "-/-";
 
@@ -19,7 +18,6 @@
   let age = nameNotAvailable;
   let hobbys = nameNotAvailable;
   let characteristics = nameNotAvailable;
-  let extras = nameNotAvailable;
 
   function onCompleteHandler() {
     alert("finished");
@@ -69,13 +67,13 @@
   // ------- AGE ------- //
 
   function getRandomAge() {
-    // age = Math.floor(Math.random() * 99).toString();
     const randomIndex = Math.floor(Math.random() * agesList.length);
     age = agesList[randomIndex];
   }
 
   function resetAge() {
     age = nameNotAvailable;
+    lock();
   }
 
   function confirmAge() {
@@ -94,6 +92,7 @@
 
   function resetHobbys() {
     hobbys = nameNotAvailable;
+    lock();
   }
 
   function confirmHobbys() {
@@ -112,28 +111,11 @@
 
   function resetCharacteristics() {
     characteristics = nameNotAvailable;
+    lock();
   }
 
   function confirmCharacteristics() {
     if (characteristics == nameNotAvailable) {
-      return;
-    }
-    unlock();
-  }
-
-  // ------- EXTRAS ------- //
-
-  function getRandomExtras() {
-    const randomIndex = Math.floor(Math.random() * extrasList.length);
-    extras = extrasList[randomIndex];
-  }
-
-  function resetExtras() {
-    extras = nameNotAvailable;
-  }
-
-  function confirmExtras() {
-    if (extras == nameNotAvailable) {
       return;
     }
     unlock();
