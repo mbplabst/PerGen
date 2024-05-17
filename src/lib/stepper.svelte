@@ -2,6 +2,7 @@
   import { Stepper, Step } from "@skeletonlabs/skeleton";
 
   import { genderList } from "./data/genders.js";
+  import { agesList } from "./data/ages";
   import { preNameList } from "./data/prenames.js";
   import { surNameList } from "./data/surnames.js";
   import { hobbyList } from "./data/hobbys.js";
@@ -11,6 +12,7 @@
   const nameNotAvailable = "-/-";
 
   let lockedState = true;
+  let visible = false;
 
   let gender = nameNotAvailable;
   let preName = nameNotAvailable;
@@ -19,6 +21,11 @@
   let hobbys = nameNotAvailable;
   let characteristics = nameNotAvailable;
   let extras = nameNotAvailable;
+
+  function onCompleteHandler() {
+    alert("finished");
+    visible = true;
+  }
 
   // ------- GENDER ------- //
 
@@ -64,7 +71,9 @@
   // ------- AGE ------- //
 
   function getRandomAge() {
-    age = Math.floor(Math.random() * 99).toString();
+    // age = Math.floor(Math.random() * 99).toString();
+    const randomIndex = Math.floor(Math.random() * agesList.length);
+    age = agesList[randomIndex];
   }
 
   function resetAge() {
@@ -153,6 +162,7 @@
     buttonComplete="variant-filled-primary"
     buttonCompleteLabel="Abschließen"
     on:next={lock}
+    on:complete={onCompleteHandler}
   >
     <!-- // ------- GENDER ------- // -->
     <!-- // ------- GENDER ------- // -->
@@ -360,16 +370,6 @@
   </Stepper>
 </div>
 
-<center class="m-8">
-  <p>Geschlecht: {gender}</p>
-  <p>Name: {preName} {surName}</p>
-  <p>Alter: {age}</p>
-  <p>Hobbys: {hobbys}</p>
-  <p>Eigenschaften: {characteristics}</p>
-  <p>Sonstiges: {extras}</p>
-</center>
-<slot />
-
 <style>
   hr {
     border-radius: 20px;
@@ -383,6 +383,9 @@
   }
 
   .selected {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
     background-color: rgb(5, 5, 5);
     border-radius: 10px;
     padding: 15px;
