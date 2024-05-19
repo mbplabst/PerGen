@@ -2,12 +2,12 @@
   import { lockedState, globalGender } from "../store/variables.js";
   import { genderList } from "../data/genders.js";
   import { updated } from "$app/stores";
+  import { onMount } from "svelte";
 
-  let gender;
+  let isVisible = false;
 
   function resetGender() {
-    gender = "Nicht ausgewählt";
-    $globalGender = gender;
+    $globalGender = "Nicht ausgewählt";
     $lockedState = true;
   }
 
@@ -17,79 +17,96 @@
     $lockedState = false;
   }
 
+  function setGender(int) {
+    if (int > 2) {
+      return;
+    }
+    $globalGender = genderList[int];
+    $lockedState = false;
+    toggleVisibility();
+  }
+
+  function toggleVisibility() {
+    isVisible = !isVisible;
+  }
+
+  onMount(() => {
+    const toggleButton = document.getElementById("toggleButton");
+    toggleButton.addEventListener("click", toggleVisibility);
+  });
+
   resetGender();
 </script>
 
-<div class="selected">
+<div class="selected flex">
   <p>{$globalGender}</p>
-  <button class="btn p-0">
-    <i class="fa-solid fa-chevron-down mt-0.5"></i>
+  <button class="btn" id="toggleButton">
+    {#if isVisible}
+      <i class="fa-solid fa-chevron-up grey fa-lg"></i>
+    {:else}
+      <i class="fa-solid fa-chevron-down grey fa-lg"></i>
+    {/if}
   </button>
 </div>
 
+{#if isVisible}
+  <div class="selected" id="dropdown">
+    <button class="btn dropdown-button" on:click={() => setGender(0)}>
+      Männlich
+    </button>
+
+    <button class="btn dropdown-button" on:click={() => setGender(1)}>
+      Weiblich
+    </button>
+
+    <button class="btn dropdown-button" on:click={() => setGender(2)}>
+      Divers
+    </button>
+  </div>
+{/if}
+
 <div class="button-group">
   <button
-    class="btn btn-sm variant-ghost-secondary gray"
+    class="btn btn-sm variant-ghost-secondary grey"
     on:click={getRandomGender}
   >
     <i class="fa-solid fa-random mr-2 random"></i>
     Zufällig
   </button>
   <button
-    class="btn btn-sm variant-ghost-secondary gray"
+    class="btn btn-sm variant-ghost-secondary grey"
     on:click={resetGender}
   >
     <i class="fa-solid fa-trash-can mr-2 reset"></i>
     Löschen
   </button>
 </div>
-<hr class="!border-t-2" />
 
 <style>
-  /* .custom-select {
-    position: relative;
+  .toggle-button {
+    padding: 0;
   }
 
-  select {
-    appearance: none;
-    -webkit-appearance: none;
+  #dropdown {
+    display: block;
+    justify-content: right;
+    padding: 2.5px 10px 2.5px 10px;
+    margin-top: -15px;
+  }
+
+  #toggleButton {
+    padding: 0;
+  }
+
+  .dropdown-button {
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
-    background-color: #050505;
     border-radius: 10px;
+    background-color: rgb(12, 12, 12);
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 15px;
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  option {
-    background-color: #090909;
-    border-radius: 10px !important;
-  }
-
-  .custom-select::before,
-  .custom-select::after {
-    --size: 0.3rem;
-    content: "";
-    position: absolute;
-    right: 1rem;
-    pointer-events: none;
-  }
-
-  .custom-select::before {
-    border-left: var(--size) solid transparent;
-    border-right: var(--size) solid transparent;
-    border-bottom: var(--size) solid rgb(255, 255, 255);
-    top: 40%;
-  }
-
-  .custom-select::after {
-    border-left: var(--size) solid transparent;
-    border-right: var(--size) solid transparent;
-    border-top: var(--size) solid rgb(255, 255, 255);
-    top: 55%;
-  } */
-
-  .gray {
-    color: rgb(201, 200, 200);
+    font-size: 18px;
   }
 </style>

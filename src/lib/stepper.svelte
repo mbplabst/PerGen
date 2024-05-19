@@ -19,10 +19,6 @@
   let hobbys = nameNotAvailable;
   let characteristics = nameNotAvailable;
 
-  function onCompleteHandler() {
-    alert("finished");
-  }
-
   // ------- NAME ------- //
 
   function getRandomName() {
@@ -123,15 +119,15 @@
     buttonComplete="variant-filled-primary"
     buttonCompleteLabel="Abschließen"
     on:next={lock}
-    on:complete={onCompleteHandler}
   >
     <!-- // ------- GENDER ------- // -->
     <!-- // ------- GENDER ------- // -->
     <!-- // ------- GENDER ------- // -->
 
     <Step locked={$lockedState}>
-      <svelte:fragment slot="header">Wähle das Geschlecht</svelte:fragment>
+      <svelte:fragment slot="header">Geschlecht</svelte:fragment>
       <SelectGender />
+      <hr class="!border-t-2" />
     </Step>
 
     <!-- // ------- NAME ------- // -->
@@ -308,8 +304,8 @@
 <style>
   hr {
     border-radius: 20px;
-    margin-top: 25px !important;
-    margin-bottom: 25px !important;
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
     border-color: rgb(19, 19, 19) !important;
   }
 
