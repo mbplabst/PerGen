@@ -141,4 +141,8 @@
   .dark-grey {
     color: rgb(99, 99, 99);
   }
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>
