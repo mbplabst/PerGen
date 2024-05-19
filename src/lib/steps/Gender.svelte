@@ -5,10 +5,12 @@
   import { onMount } from "svelte";
 
   let isVisible = false;
+  let isSelected = false;
 
   function getRandomGender() {
     const randomIndex = Math.floor(Math.random() * genderList.length);
     $globalGender = genderList[randomIndex];
+    isSelected = false;
   }
 
   function setGender(int) {
@@ -17,11 +19,13 @@
     }
     $globalGender = genderList[int];
     toggleVisibility();
+    isSelected = false;
   }
 
   function resetGender() {
     $globalGender = "Nicht ausgewählt";
     $lockedState = true;
+    isSelected = false;
   }
 
   function confirmGender() {
@@ -29,6 +33,7 @@
       return;
     }
     $lockedState = false;
+    isSelected = true;
   }
 
   function toggleVisibility() {
@@ -42,7 +47,11 @@
 </script>
 
 <div class="selected flex">
-  <p>{$globalGender}</p>
+  {#if isSelected}
+    <p class="dark-grey">{$globalGender}</p>
+  {:else}
+    <p>{$globalGender}</p>
+  {/if}
   <button class="btn" id="toggleButton">
     {#if isVisible}
       <i class="fa-solid fa-chevron-up grey fa-lg"></i>
@@ -70,21 +79,21 @@
 
 <div class="button-group">
   <button
-    class="btn btn-sm variant-ghost-secondary button-group-badge"
+    class="btn btn-sm variant-ghost-secondary button-group-badge grey badge"
     on:click={getRandomGender}
   >
     <i class="fa-solid fa-random mr-2 random"></i>
     Zufall
   </button>
   <button
-    class="btn btn-sm variant-ghost-secondary button-group-badge"
+    class="btn btn-sm variant-ghost-secondary button-group-badge grey badge"
     on:click={resetGender}
   >
     <i class="fa-solid fa-trash-can mr-2 reset"></i>
     Löschen
   </button>
   <button
-    class="btn btn-sm variant-ghost-secondary button-group-badge"
+    class="btn btn-sm variant-ghost-secondary button-group-badge grey badge"
     on:click={confirmGender}
   >
     <i class="fa-solid fa-check mr-2 confirm"></i>
@@ -125,6 +134,11 @@
   }
 
   .button-group-badge {
-    margin-right: 7px;
+    border-radius: 12px !important;
+    margin-right: 5px;
+  }
+
+  .dark-grey {
+    color: rgb(99, 99, 99);
   }
 </style>
