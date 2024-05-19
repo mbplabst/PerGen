@@ -6,15 +6,9 @@
 
   let isVisible = false;
 
-  function resetGender() {
-    $globalGender = "Nicht ausgewählt";
-    $lockedState = true;
-  }
-
   function getRandomGender() {
     const randomIndex = Math.floor(Math.random() * genderList.length);
     $globalGender = genderList[randomIndex];
-    $lockedState = false;
   }
 
   function setGender(int) {
@@ -22,8 +16,19 @@
       return;
     }
     $globalGender = genderList[int];
-    $lockedState = false;
     toggleVisibility();
+  }
+
+  function resetGender() {
+    $globalGender = "Nicht ausgewählt";
+    $lockedState = true;
+  }
+
+  function confirmGender() {
+    if ($globalGender === "Nicht ausgewählt") {
+      return;
+    }
+    $lockedState = false;
   }
 
   function toggleVisibility() {
@@ -34,8 +39,6 @@
     const toggleButton = document.getElementById("toggleButton");
     toggleButton.addEventListener("click", toggleVisibility);
   });
-
-  resetGender();
 </script>
 
 <div class="selected flex">
@@ -52,33 +55,40 @@
 {#if isVisible}
   <div class="selected" id="dropdown">
     <button class="btn dropdown-button" on:click={() => setGender(0)}>
-      Männlich
+      <i class="fa-solid fa-mars mr-2 icon"></i>Männlich
     </button>
 
     <button class="btn dropdown-button" on:click={() => setGender(1)}>
-      Weiblich
+      <i class="fa-solid fa-venus mr-2 icon"></i>Weiblich
     </button>
 
     <button class="btn dropdown-button" on:click={() => setGender(2)}>
-      Divers
+      <i class="fa-solid fa-mars-and-venus mr-2 icon"></i>Divers
     </button>
   </div>
 {/if}
 
 <div class="button-group">
   <button
-    class="btn btn-sm variant-ghost-secondary grey"
+    class="btn btn-sm variant-ghost-secondary button-group-badge"
     on:click={getRandomGender}
   >
     <i class="fa-solid fa-random mr-2 random"></i>
-    Zufällig
+    Zufall
   </button>
   <button
-    class="btn btn-sm variant-ghost-secondary grey"
+    class="btn btn-sm variant-ghost-secondary button-group-badge"
     on:click={resetGender}
   >
     <i class="fa-solid fa-trash-can mr-2 reset"></i>
     Löschen
+  </button>
+  <button
+    class="btn btn-sm variant-ghost-secondary button-group-badge"
+    on:click={confirmGender}
+  >
+    <i class="fa-solid fa-check mr-2 confirm"></i>
+    Bestät.
   </button>
 </div>
 
@@ -108,5 +118,13 @@
     margin-bottom: 10px;
     padding: 15px;
     font-size: 18px;
+  }
+
+  .icon {
+    margin-right: 15px;
+  }
+
+  .button-group-badge {
+    margin-right: 7px;
   }
 </style>
