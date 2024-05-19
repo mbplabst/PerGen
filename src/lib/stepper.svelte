@@ -1,7 +1,10 @@
 <script lang="js">
   import { Stepper, Step } from "@skeletonlabs/skeleton";
 
-  import { genderList } from "./data/genders.js";
+  import SelectGender from "./steps/Gender.svelte";
+
+  import { lockedState, globalGender } from "./store/variables.js";
+
   import { agesList } from "./data/ages";
   import { preNameList } from "./data/prenames.js";
   import { surNameList } from "./data/surnames.js";
@@ -10,9 +13,6 @@
 
   const nameNotAvailable = "-/-";
 
-  let lockedState = true;
-
-  let gender = nameNotAvailable;
   let preName = nameNotAvailable;
   let surName = nameNotAvailable;
   let age = nameNotAvailable;
@@ -21,25 +21,6 @@
 
   function onCompleteHandler() {
     alert("finished");
-  }
-
-  // ------- GENDER ------- //
-
-  function getRandomGender() {
-    const randomIndex = Math.floor(Math.random() * genderList.length);
-    gender = genderList[randomIndex];
-  }
-
-  function resetGender() {
-    gender = nameNotAvailable;
-    lock();
-  }
-
-  function confirmGender() {
-    if (gender == nameNotAvailable) {
-      return;
-    }
-    unlock();
   }
 
   // ------- NAME ------- //
@@ -124,11 +105,11 @@
   // ------- STATE CONTROL ------- //
 
   function unlock() {
-    lockedState = false;
+    $lockedState = false;
   }
 
   function lock() {
-    lockedState = true;
+    $lockedState = true;
   }
 </script>
 
@@ -148,42 +129,16 @@
     <!-- // ------- GENDER ------- // -->
     <!-- // ------- GENDER ------- // -->
 
-    <Step locked={lockedState}>
-      <svelte:fragment slot="header">Geschlecht</svelte:fragment>
-      <div class="selected">
-        <p>{gender}</p>
-      </div>
-      <div class="button-group">
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={getRandomGender}
-        >
-          <i class="fa-solid fa-random mr-2 random"></i>
-          Random
-        </button>
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={resetGender}
-        >
-          <i class="fa-solid fa-trash-can mr-2 reset"></i>
-          Reset
-        </button>
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={confirmGender}
-        >
-          <i class="fa-solid fa-check mr-2 confirm"></i>
-          Confirm
-        </button>
-      </div>
-      <hr class="!border-t-2" />
+    <Step locked={$lockedState}>
+      <svelte:fragment slot="header">Wähle das Geschlecht</svelte:fragment>
+      <SelectGender />
     </Step>
 
     <!-- // ------- NAME ------- // -->
     <!-- // ------- NAME ------- // -->
     <!-- // ------- NAME ------- // -->
 
-    <Step locked={lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Name</svelte:fragment>
       <div class="selected">
         <p>{preName} {surName}</p>
@@ -215,7 +170,7 @@
     <!-- // ------- AGE ------- // -->
     <!-- // ------- AGE ------- // -->
 
-    <Step locked={lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Alter</svelte:fragment>
       <div class="selected">
         <p>{age}</p>
@@ -247,7 +202,7 @@
     <!-- // ------- HOBBYS ------- // -->
     <!-- // ------- HOBBYS ------- // -->
 
-    <Step locked={lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Hobbys</svelte:fragment>
       <div class="selected">
         <p>{hobbys}</p>
@@ -282,7 +237,7 @@
     <!-- // ------- CHARACTERISTICS ------- // -->
     <!-- // ------- CHARACTERISTICS ------- // -->
 
-    <Step locked={lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Eigenschaften</svelte:fragment>
       <div class="selected">
         <p>{characteristics}</p>
@@ -317,7 +272,7 @@
     <!-- // ------- EXTRAS ------- // -->
     <!-- // ------- EXTRAS ------- // -->
 
-    <Step locked={lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Zusammenfassung</svelte:fragment>
 
       <center>
@@ -327,7 +282,7 @@
         Name: {preName}
         {surName}
         <br />
-        Geschlecht : {gender}
+        Geschlecht : {$globalGender}
         <br />
         Alter: {age} Jahre
         <br />
@@ -345,6 +300,10 @@
     </Step>
   </Stepper>
 </div>
+
+<center class="mt-10">
+  Lockstate: {$lockedState}, {$globalGender}
+</center>
 
 <style>
   hr {
@@ -366,17 +325,5 @@
     border-radius: 10px;
     padding: 15px;
     font-size: 20px;
-  }
-
-  .random {
-    color: goldenrod;
-  }
-
-  .reset {
-    color: brown;
-  }
-
-  .confirm {
-    color: green;
   }
 </style>

@@ -7,8 +7,8 @@
 </head>
 
 <h2 class="center">Erstelle hier ein neues Profil</h2>
-
 <ProfileStepper />
+<slot />
 
 <style>
   h2 {
