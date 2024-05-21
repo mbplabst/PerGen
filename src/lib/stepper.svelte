@@ -1,7 +1,7 @@
 <script lang="js">
   import { Stepper, Step } from "@skeletonlabs/skeleton";
 
-  import SelectGender from "./steps/Gender.svelte";
+  import SelectGender from "./steps/gender/Gender.svelte";
 
   import { lockedState, globalGender } from "./store/variables.js";
 
