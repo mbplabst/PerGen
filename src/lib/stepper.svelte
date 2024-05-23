@@ -6,7 +6,6 @@
 
   import { lockedState, globalGender, globalAge } from "./store/variables.js";
 
-  // import { agesList } from "./data/ages";
   import { preNameList } from "./data/prenames.js";
   import { surNameList } from "./data/surnames.js";
   import { hobbyList } from "./data/hobbys.js";
@@ -16,7 +15,6 @@
 
   let preName = nameNotAvailable;
   let surName = nameNotAvailable;
-  // let age = nameNotAvailable;
   let hobbys = nameNotAvailable;
   let characteristics = nameNotAvailable;
 
@@ -41,25 +39,6 @@
     }
     unlock();
   }
-
-  // ------- AGE ------- //
-
-  // function getRandomAge() {
-  //   const randomIndex = Math.floor(Math.random() * agesList.length);
-  //   age = agesList[randomIndex];
-  // }
-
-  // function resetAge() {
-  //   age = nameNotAvailable;
-  //   lock();
-  // }
-
-  // function confirmAge() {
-  //   if (age == nameNotAvailable) {
-  //     return;
-  //   }
-  //   unlock();
-  // }
 
   // ------- HOBBYS ------- //
 
@@ -123,17 +102,17 @@
   >
     <!-- // ------- GENDER ------- // -->
 
-    <Step locked={$lockedState}>
+    <!-- <Step locked={$lockedState}>
       <svelte:fragment slot="header">Geschlecht</svelte:fragment>
       <SelectGender />
       <hr class="!border-t-2" />
-    </Step>
+    </Step> -->
 
     <!-- // ------- NAME ------- // -->
     <!-- // ------- NAME ------- // -->
     <!-- // ------- NAME ------- // -->
 
-    <Step locked={$lockedState}>
+    <!-- <Step locked={$lockedState}>
       <svelte:fragment slot="header">Name</svelte:fragment>
       <div class="selected">
         <p>{preName} {surName}</p>
@@ -159,7 +138,7 @@
         </button>
       </div>
       <hr class="!border-t-2" />
-    </Step>
+    </Step> -->
 
     <!-- // ------- AGE ------- // -->
     <!-- // ------- AGE ------- // -->
@@ -167,29 +146,6 @@
 
     <Step locked={$lockedState}>
       <svelte:fragment slot="header">Alter</svelte:fragment>
-      <!-- <div class="selected">
-        <p>{age}</p>
-      </div>
-      <div class="button-group">
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={getRandomAge}
-        >
-          <i class="fa-solid fa-shuffle mr-2 random"></i>
-          Random
-        </button>
-        <button class="btn btn-sm variant-ghost-secondary" on:click={resetAge}>
-          <i class="fa-solid fa-trash-can mr-2 reset"></i>
-          Reset
-        </button>
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={confirmAge}
-        >
-          <i class="fa-solid fa-check mr-2 confirm"></i>
-          Confirm
-        </button>
-      </div> -->
       <SelectAge />
       <hr class="!border-t-2" />
     </Step>
@@ -298,7 +254,7 @@
 </div>
 
 <center class="mt-10">
-  Lockstate: {$lockedState}, {$globalGender}
+  Lockstate: {$lockedState}, {$globalGender}, {$globalAge}
 </center>
 
 <style>

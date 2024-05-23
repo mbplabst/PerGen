@@ -50,12 +50,4 @@
     <i class="fa-solid fa-trash-can mr-2 reset"></i>
     Löschen
   </button>
-  <!--  -->
-  <button
-    class="btn btn-sm variant-ghost-secondary button-group-badge badge"
-    on:click={confirmAge}
-  >
-    <i class="fa-solid fa-check mr-2 confirm"></i>
-    Bestät.
-  </button>
 </div>

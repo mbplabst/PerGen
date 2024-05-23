@@ -65,8 +65,8 @@
     <hr class="!border-t-2" />
   </div>
   <div class="footer">
-    Build Version 1.5.42<br />
-    Updated May 21, 2024<br />
+    Build Version 1.5.43<br />
+    Updated May 23, 2024<br />
     Powered by <a href="https://lachsfich.de" id="lachsfich">lachsfich.de</a>
     <br />
     <br />
