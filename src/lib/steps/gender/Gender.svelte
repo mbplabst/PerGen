@@ -1,41 +1,36 @@
 <script>
   import { lockedState, globalGender } from "../../store/variables.js";
   import { genderList } from "../../data/genders.js";
-  // import { updated } from "$app/stores";
   import { onMount } from "svelte";
-
   import "./style.css";
 
   let isVisible = false;
-  let isSelected = false;
+  let isValidOption = false;
 
   function getRandomGender() {
     const randomIndex = Math.floor(Math.random() * genderList.length);
     $globalGender = genderList[randomIndex];
-    isSelected = false;
+    $lockedState = false;
+    isValidOption = true;
   }
 
+  /**
+   * @param {number} int
+   */
   function setGender(int) {
     if (int > 2) {
       return;
     }
     $globalGender = genderList[int];
     toggleVisibility();
-    isSelected = false;
+    $lockedState = false;
+    isValidOption = true;
   }
 
   function resetGender() {
     $globalGender = "Nicht ausgewählt";
     $lockedState = true;
-    isSelected = false;
-  }
-
-  function confirmGender() {
-    if ($globalGender === "Nicht ausgewählt") {
-      return;
-    }
-    $lockedState = false;
-    isSelected = true;
+    isValidOption = false;
   }
 
   function toggleVisibility() {
@@ -48,20 +43,16 @@
   });
 </script>
 
-<div class="selected flex">
-  {#if isSelected}
-    <p class="color-locked-in">{$globalGender}</p>
-  {:else}
-    <p>{$globalGender}</p>
-  {/if}
-  <button id="toggleButton">
+<button class="selected flex" id="toggleButton">
+  <p>{$globalGender}</p>
+  <button>
     {#if isVisible}
       <i class="fa-solid fa-chevron-up grey"></i>
     {:else}
       <i class="fa-solid fa-chevron-down grey"></i>
     {/if}
   </button>
-</div>
+</button>
 
 {#if isVisible}
   <div class="selected" id="dropdown">
@@ -85,24 +76,16 @@
     <i class="fa-solid fa-random mr-2 random"></i>
     Zufall
   </button>
-  <!--  -->
+
   <button
     class="btn btn-sm variant-ghost-secondary button-group-badge badge"
     on:click={resetGender}
   >
     <i class="fa-solid fa-trash-can mr-2 reset"></i>
-    Löschen
-  </button>
-  <!--  -->
-  <button
-    class="btn btn-sm variant-ghost-secondary button-group-badge badge"
-    on:click={confirmGender}
-  >
-    <i class="fa-solid fa-check mr-2 confirm"></i>
-    {#if !isSelected}
-      Bestät.
+    {#if isValidOption}
+      <span>Löschen</span>
     {:else}
-      Bestät.
+      <span class="is-valid-option">Löschen</span>
     {/if}
   </button>
 </div>

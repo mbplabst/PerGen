@@ -71,7 +71,8 @@
     <br />
     <br />
     Contributors:
-    <br /> <span id="contributors">@fruchtea</span>, <span id="contributors">@im_gone_</span>
+    <br /> <span id="contributors">@fruchtea</span>,
+    <span id="contributors">@im_gone_</span>
   </div>
 </div>
 

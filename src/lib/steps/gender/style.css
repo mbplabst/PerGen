@@ -1,16 +1,9 @@
-.toggle-button {
-    padding: 0;
-}
-
 #dropdown {
     display: block;
     justify-content: right;
+    text-align: center;
     padding: 2.5px 10px 2.5px 10px;
     margin-top: -15px;
-}
-
-#toggleButton {
-    padding: 0;
 }
 
 .dropdown-button {
@@ -21,7 +14,9 @@
     background-color: rgb(12, 12, 12);
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 15px;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 18px;
 }
 
@@ -34,11 +29,15 @@
     margin-right: 5px;
 }
 
-.color-locked-in {
-    color: rgb(110, 109, 109);
+.is-valid-option {
+    color: rgb(75, 75, 75);
 }
 
 .flex {
     display: flex;
     justify-content: space-between;
+}
+
+span {
+    margin-left: 0px !important;
 }

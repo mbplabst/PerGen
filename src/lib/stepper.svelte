@@ -2,10 +2,11 @@
   import { Stepper, Step } from "@skeletonlabs/skeleton";
 
   import SelectGender from "./steps/gender/Gender.svelte";
+  import SelectAge from "./steps/age/Age.svelte";
 
-  import { lockedState, globalGender } from "./store/variables.js";
+  import { lockedState, globalGender, globalAge } from "./store/variables.js";
 
-  import { agesList } from "./data/ages";
+  // import { agesList } from "./data/ages";
   import { preNameList } from "./data/prenames.js";
   import { surNameList } from "./data/surnames.js";
   import { hobbyList } from "./data/hobbys.js";
@@ -15,7 +16,7 @@
 
   let preName = nameNotAvailable;
   let surName = nameNotAvailable;
-  let age = nameNotAvailable;
+  // let age = nameNotAvailable;
   let hobbys = nameNotAvailable;
   let characteristics = nameNotAvailable;
 
@@ -43,22 +44,22 @@
 
   // ------- AGE ------- //
 
-  function getRandomAge() {
-    const randomIndex = Math.floor(Math.random() * agesList.length);
-    age = agesList[randomIndex];
-  }
+  // function getRandomAge() {
+  //   const randomIndex = Math.floor(Math.random() * agesList.length);
+  //   age = agesList[randomIndex];
+  // }
 
-  function resetAge() {
-    age = nameNotAvailable;
-    lock();
-  }
+  // function resetAge() {
+  //   age = nameNotAvailable;
+  //   lock();
+  // }
 
-  function confirmAge() {
-    if (age == nameNotAvailable) {
-      return;
-    }
-    unlock();
-  }
+  // function confirmAge() {
+  //   if (age == nameNotAvailable) {
+  //     return;
+  //   }
+  //   unlock();
+  // }
 
   // ------- HOBBYS ------- //
 
@@ -121,8 +122,6 @@
     on:next={lock}
   >
     <!-- // ------- GENDER ------- // -->
-    <!-- // ------- GENDER ------- // -->
-    <!-- // ------- GENDER ------- // -->
 
     <Step locked={$lockedState}>
       <svelte:fragment slot="header">Geschlecht</svelte:fragment>
@@ -168,7 +167,7 @@
 
     <Step locked={$lockedState}>
       <svelte:fragment slot="header">Alter</svelte:fragment>
-      <div class="selected">
+      <!-- <div class="selected">
         <p>{age}</p>
       </div>
       <div class="button-group">
@@ -190,7 +189,8 @@
           <i class="fa-solid fa-check mr-2 confirm"></i>
           Confirm
         </button>
-      </div>
+      </div> -->
+      <SelectAge />
       <hr class="!border-t-2" />
     </Step>
 
@@ -280,7 +280,7 @@
         <br />
         Geschlecht : {$globalGender}
         <br />
-        Alter: {age} Jahre
+        Alter: {$globalAge} Jahre
         <br />
         Hobbys: {hobbys}
         <br />
