@@ -1,1 +1,0 @@
-export const agesList = Array.from({ length: 120 }, (_, i) => (i + 1).toString());

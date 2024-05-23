@@ -1,37 +1,26 @@
 <script>
+  import { RangeSlider } from "@skeletonlabs/skeleton";
   import { lockedState, globalAge } from "../../store/variables.js";
-  import { agesList } from "../../data/ages.js";
-  import { onMount } from "svelte";
   import "./style.css";
 
-  function getRandomAge() {
-    const randomIndex = Math.floor(Math.random() * agesList.length);
-    $globalAge = agesList[randomIndex];
+  let value = $globalAge;
+
+  function setAge() {
+    $globalAge = value;
   }
 
-  //   function setAge(int) {
-  //     if (int > 2) {
-  //       return;
-  //     }
-  //     $npmglobalAge = genderList[int];
-  //     toggleVisibility();
-  //   }
+  function getRandomAge() {}
 
-  function resetAge() {
-    $globalAge = "Nicht ausgewählt";
-    $lockedState = true;
-  }
-
-  function confirmAge() {
-    if ($globalAge === "Nicht ausgewählt") {
-      return;
-    }
-    $lockedState = false;
-  }
+  function resetAge() {}
 </script>
 
 <div class="selected">
-  <p>{$globalAge}</p>
+  <RangeSlider name="range-slider" bind:value max={10} step={1} ticked>
+    <div class="flex justify-between items-center">
+      <p>Ausgewählt: {value} Jahre</p>
+    </div>
+  </RangeSlider>
+  {$globalAge}
 </div>
 
 <div class="button-group">
