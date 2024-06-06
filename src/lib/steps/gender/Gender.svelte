@@ -5,13 +5,13 @@
   import "./style.css";
 
   let isVisible = false;
-  let isValidOption = false;
+  // let isValidOption = false;
 
   function getRandomGender() {
     const randomIndex = Math.floor(Math.random() * genderList.length);
     $globalGender = genderList[randomIndex];
     $lockedState = false;
-    isValidOption = true;
+    // isValidOption = true;
   }
 
   /**
@@ -24,13 +24,13 @@
     $globalGender = genderList[int];
     toggleVisibility();
     $lockedState = false;
-    isValidOption = true;
+    // isValidOption = true;
   }
 
   function resetGender() {
     $globalGender = "Nicht ausgewählt";
     $lockedState = true;
-    isValidOption = false;
+    // isValidOption = false;
   }
 
   function toggleVisibility() {
@@ -82,10 +82,10 @@
     on:click={resetGender}
   >
     <i class="fa-solid fa-trash-can mr-2 reset"></i>
-    {#if isValidOption}
-      <span>Löschen</span>
-    {:else}
-      <span class="is-valid-option">Löschen</span>
-    {/if}
+    <!-- {#if isValidOption} -->
+    <span>Löschen</span>
+    <!-- {:else} -->
+    <span class="is-valid-option">Löschen</span>
+    <!-- {/if} -->
   </button>
 </div>
