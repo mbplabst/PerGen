@@ -39,7 +39,7 @@
         </li>
         <li>
           <a href="/new" on:click={closeNav}>
-            <i class="fa-solid fa-user-plus icon"></i>
+            <i class="fa-solid fa-user-plus"></i>
             <span class="flex-auto correction">New Profile</span>
           </a>
         </li>
@@ -65,8 +65,8 @@
     <hr class="!border-t-2" />
   </div>
   <div class="footer">
-    Build Version 1.5.43<br />
-    Updated May 23, 2024<br />
+    Build Version 1.5.5<br />
+    Updated Jun 6, 2024<br />
     Powered by <a href="https://lachsfich.de" id="lachsfich">lachsfich.de</a>
     <br />
     <br />
