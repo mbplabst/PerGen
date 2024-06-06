@@ -7,20 +7,33 @@
 
   function setAge() {
     $globalAge = value;
+    $lockedState = false;
   }
 
-  function getRandomAge() {}
+  function getRandomAge() {
+    $globalAge = Math.floor(Math.random() * 120) + 1;
+    value = $globalAge;
+    $lockedState = false;
+  }
 
-  function resetAge() {}
+  function resetAge() {
+    $globalAge = value = 1;
+    $lockedState = true;
+  }
 </script>
 
 <div class="selected">
-  <RangeSlider name="range-slider" bind:value max={10} step={1} ticked>
+  <RangeSlider
+    name="range-slider"
+    bind:value
+    max={120}
+    step={1}
+    on:change={setAge}
+  >
     <div class="flex justify-between items-center">
       <p>Ausgewählt: {value} Jahre</p>
     </div>
   </RangeSlider>
-  {$globalAge}
 </div>
 
 <div class="button-group">
