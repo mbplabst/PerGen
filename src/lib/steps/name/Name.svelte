@@ -3,10 +3,14 @@
   import { preNameList } from "$lib/data/prenames.js";
   import { surNameList } from "../../data/surnames.js";
   import { onMount } from "svelte";
+  import "../style.css/";
 
   let isVisible = false;
   let preName = "";
   let surName = "";
+
+  let customPreName = "";
+  let customSurName = "";
 
   // -- // -- // -- //
 
@@ -15,19 +19,22 @@
       $globalName = "Nicht ausgewählt";
       return;
     }
+
+    customPreName = preName;
+    customSurName = surName;
     $globalName = preName + " " + surName;
+    $lockedState = false;
   }
 
   function getRandomFullName() {
     getRandomPreName();
     getRandomSurName();
-    $lockedState = false;
     setGlobalName();
   }
 
   function resetFullName() {
-    preName = "";
-    surName = "";
+    customPreName = preName = "";
+    customSurName = surName = "";
     $globalName = "Nicht ausgewählt";
     $lockedState = true;
   }
@@ -47,14 +54,30 @@
   }
 
   function deletePreName() {
-    preName = "";
+    customPreName = preName = "";
     $lockedState = true;
     setGlobalName();
   }
 
   function deleteSurName() {
-    surName = "";
+    customSurName = surName = "";
     $lockedState = true;
+    setGlobalName();
+  }
+
+  function handleCustomPreName() {
+    preName = customPreName;
+    if (customPreName === "" && customSurName === "") {
+      $lockedState = true;
+    }
+    setGlobalName();
+  }
+
+  function handleCustomSurName() {
+    surName = customSurName;
+    if (customPreName === "" && customSurName === "") {
+      $lockedState = true;
+    }
     setGlobalName();
   }
 
@@ -86,10 +109,10 @@
     <div class="input-container">
       <input
         class="input"
-        bind:value={preName}
+        bind:value={customPreName}
         type="text"
         placeholder="Eigener Vorname"
-        on:input={() => console.log(preName)}
+        on:input={handleCustomPreName}
       />
       <button
         class="btn dropdown-control-btn"
@@ -110,10 +133,10 @@
     <div class="input-container dropdown-correction">
       <input
         class="input"
-        bind:value={surName}
+        bind:value={customSurName}
         type="text"
         placeholder="Eigener Nachname"
-        on:input={() => console.log(surName)}
+        on:input={handleCustomSurName}
       />
       <button
         class="btn dropdown-control-btn"
@@ -151,14 +174,6 @@
 </div>
 
 <style>
-  #dropdown {
-    display: block;
-    justify-content: right;
-    text-align: center;
-    padding: 2.5px 10px 2.5px 10px;
-    margin-top: -15px;
-  }
-
   .input-container {
     display: flex;
   }

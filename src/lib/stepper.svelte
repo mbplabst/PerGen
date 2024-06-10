@@ -82,24 +82,20 @@
   >
     <!-- // ------- GENDER ------- // -->
 
-    <Step locked={$lockedState}>
+    <!-- <Step locked={$lockedState}>
       <svelte:fragment slot="header">Geschlecht</svelte:fragment>
       <SelectGender />
       <hr class="!border-t-2" />
-    </Step>
+    </Step> -->
 
     <!-- // ------- NAME ------- // -->
-    <!-- // ------- NAME ------- // -->
-    <!-- // ------- NAME ------- // -->
 
-    <Step locked={$lockedState}>
+    <!-- <Step locked={$lockedState}>
       <svelte:fragment slot="header">Name</svelte:fragment>
       <SelectName />
       <hr class="!border-t-2" />
-    </Step>
+    </Step> -->
 
-    <!-- // ------- AGE ------- // -->
-    <!-- // ------- AGE ------- // -->
     <!-- // ------- AGE ------- // -->
 
     <Step locked={$lockedState}>
@@ -115,32 +111,6 @@
     <Step locked={$lockedState}>
       <svelte:fragment slot="header">Hobbys</svelte:fragment>
       <SelectHobbys />
-      <!-- <div class="selected">
-        <p>{hobbys}</p>
-      </div>
-      <div class="button-group">
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={getRandomHobby}
-        >
-          <i class="fa-solid fa-shuffle mr-2 random"></i>
-          Random
-        </button>
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={resetHobbys}
-        >
-          <i class="fa-solid fa-trash-can mr-2 reset"></i>
-          Reset
-        </button>
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={confirmHobbys}
-        >
-          <i class="fa-solid fa-check mr-2 confirm"></i>
-          Confirm
-        </button>
-      </div> -->
       <hr class="!border-t-2" />
     </Step>
 

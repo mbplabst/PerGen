@@ -1,0 +1,18 @@
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+#dropdown {
+    display: block;
+    justify-content: right;
+    text-align: center;
+    padding: 2.5px 10px 2.5px 10px;
+    margin-top: -15px;
+}
+
+.button-group-badge {
+    border-radius: 5px !important;
+    margin-right: 5px;
+    background-color: black !important;
+}

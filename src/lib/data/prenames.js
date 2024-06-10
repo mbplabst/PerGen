@@ -19,5 +19,5 @@ export const preNameList = [
     "Claire", "Kinsley", "Everly", "Emery", "Adeline", "Kennedy", "Maeve", "Audrey", "Autumn",
     "Athena", "Eden", "Iris", "Anna", "Eloise", "Jade", "Maria", "Caroline", "Brooklyn", "Quinn",
     "Aaliyah", "Vivian", "Liliana", "Gabriella", "Hailey", "Sarah", "Savannah", "Cora", "Madeline",
-    "Natalia", "Ariana", "Lydia", "Lyla", "Clara", "Allison"
+    "Natalia", "Ariana", "Lydia", "Lyla", "Clara", "Allison", "Diethelm", "Friedhart", "Edelbert"
 ];
