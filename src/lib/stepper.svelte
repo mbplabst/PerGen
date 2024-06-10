@@ -12,39 +12,13 @@
     globalAge,
   } from "./store/variables.js";
 
-  // import { preNameList } from "./data/prenames.js";
-  // import { surNameList } from "./data/surnames.js";
   import { hobbyList } from "./data/hobbys.js";
   import { characteristicList } from "./data/characteristics.js";
 
   const nameNotAvailable = "-/-";
 
-  // let preName = nameNotAvailable;
-  // let surName = nameNotAvailable;
   let hobbys = nameNotAvailable;
   let characteristics = nameNotAvailable;
-
-  // ------- NAME ------- //
-
-  // function getRandomName() {
-  //   const randomIndex = Math.floor(Math.random() * preNameList.length);
-  //   const randomIndex2 = Math.floor(Math.random() * surNameList.length);
-  //   preName = preNameList[randomIndex];
-  //   surName = surNameList[randomIndex2];
-  // }
-
-  // function resetName() {
-  //   preName = nameNotAvailable;
-  //   surName = nameNotAvailable;
-  //   lock();
-  // }
-
-  // function confirmName() {
-  //   if (preName == nameNotAvailable && surName == nameNotAvailable) {
-  //     return;
-  //   }
-  //   unlock();
-  // }
 
   // ------- HOBBYS ------- //
 
@@ -108,11 +82,11 @@
   >
     <!-- // ------- GENDER ------- // -->
 
-    <!-- <Step locked={$lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Geschlecht</svelte:fragment>
       <SelectGender />
       <hr class="!border-t-2" />
-    </Step> -->
+    </Step>
 
     <!-- // ------- NAME ------- // -->
     <!-- // ------- NAME ------- // -->
@@ -128,11 +102,11 @@
     <!-- // ------- AGE ------- // -->
     <!-- // ------- AGE ------- // -->
 
-    <!-- <Step locked={$lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Alter</svelte:fragment>
       <SelectAge />
       <hr class="!border-t-2" />
-    </Step> -->
+    </Step>
 
     <!-- // ------- HOBBYS ------- // -->
     <!-- // ------- HOBBYS ------- // -->
