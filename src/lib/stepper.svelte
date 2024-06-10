@@ -102,17 +102,17 @@
   >
     <!-- // ------- GENDER ------- // -->
 
-    <!-- <Step locked={$lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Geschlecht</svelte:fragment>
       <SelectGender />
       <hr class="!border-t-2" />
-    </Step> -->
+    </Step>
 
     <!-- // ------- NAME ------- // -->
     <!-- // ------- NAME ------- // -->
     <!-- // ------- NAME ------- // -->
 
-    <!-- <Step locked={$lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Name</svelte:fragment>
       <div class="selected">
         <p>{preName} {surName}</p>
@@ -144,11 +144,11 @@
     <!-- // ------- AGE ------- // -->
     <!-- // ------- AGE ------- // -->
 
-    <!-- <Step locked={$lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Alter</svelte:fragment>
       <SelectAge />
       <hr class="!border-t-2" />
-    </Step> -->
+    </Step>
 
     <!-- // ------- HOBBYS ------- // -->
     <!-- // ------- HOBBYS ------- // -->
