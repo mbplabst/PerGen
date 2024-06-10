@@ -1,5 +1,4 @@
 <script>
-  import { InputChip } from "@skeletonlabs/skeleton";
   import { lockedState, globalHobbys } from "../../store/variables.js";
   import { hobbyList } from "../../data/hobbys.js";
   import { onMount } from "svelte";

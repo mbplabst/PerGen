@@ -2,6 +2,7 @@
   import { Stepper, Step } from "@skeletonlabs/skeleton";
 
   import SelectGender from "./steps/gender/Gender.svelte";
+  import SelectName from "./steps/name/Name.svelte";
   import SelectAge from "./steps/age/Age.svelte";
   import SelectHobbys from "./steps/hobbys/Hobbys.svelte";
   import { lockedState, globalGender, globalAge } from "./store/variables.js";
@@ -114,41 +115,19 @@
 
     <Step locked={$lockedState}>
       <svelte:fragment slot="header">Name</svelte:fragment>
-      <div class="selected">
-        <p>{preName} {surName}</p>
-      </div>
-      <div class="button-group">
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={getRandomName}
-        >
-          <i class="fa-solid fa-shuffle mr-2 random"></i>
-          Random
-        </button>
-        <button class="btn btn-sm variant-ghost-secondary" on:click={resetName}>
-          <i class="fa-solid fa-trash-can mr-2 reset"></i>
-          Reset
-        </button>
-        <button
-          class="btn btn-sm variant-ghost-secondary"
-          on:click={confirmName}
-        >
-          <i class="fa-solid fa-check mr-2 confirm"></i>
-          Confirm
-        </button>
-      </div>
+      <SelectName />
       <hr class="!border-t-2" />
-    </Step> -->
+    </Step>
 
     <!-- // ------- AGE ------- // -->
     <!-- // ------- AGE ------- // -->
     <!-- // ------- AGE ------- // -->
 
-    <Step locked={$lockedState}>
+    <!-- <Step locked={$lockedState}>
       <svelte:fragment slot="header">Alter</svelte:fragment>
       <SelectAge />
       <hr class="!border-t-2" />
-    </Step>
+    </Step> -->
 
     <!-- // ------- HOBBYS ------- // -->
     <!-- // ------- HOBBYS ------- // -->
