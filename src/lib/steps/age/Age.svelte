@@ -1,7 +1,6 @@
 <script>
   import { RangeSlider } from "@skeletonlabs/skeleton";
   import { lockedState, globalAge } from "../../store/variables.js";
-  import "./style.css";
 
   let value = $globalAge;
 

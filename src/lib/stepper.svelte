@@ -3,7 +3,7 @@
 
   import SelectGender from "./steps/gender/Gender.svelte";
   import SelectAge from "./steps/age/Age.svelte";
-
+  import SelectHobbys from "./steps/hobbys/Hobbys.svelte";
   import { lockedState, globalGender, globalAge } from "./store/variables.js";
 
   import { preNameList } from "./data/prenames.js";
@@ -42,22 +42,22 @@
 
   // ------- HOBBYS ------- //
 
-  function getRandomHobby() {
-    const randomIndex = Math.floor(Math.random() * hobbyList.length);
-    hobbys = hobbyList[randomIndex];
-  }
+  // function getRandomHobby() {
+  //   const randomIndex = Math.floor(Math.random() * hobbyList.length);
+  //   hobbys = hobbyList[randomIndex];
+  // }
 
-  function resetHobbys() {
-    hobbys = nameNotAvailable;
-    lock();
-  }
+  // function resetHobbys() {
+  //   hobbys = nameNotAvailable;
+  //   lock();
+  // }
 
-  function confirmHobbys() {
-    if (hobbys == nameNotAvailable) {
-      return;
-    }
-    unlock();
-  }
+  // function confirmHobbys() {
+  //   if (hobbys == nameNotAvailable) {
+  //     return;
+  //   }
+  //   unlock();
+  // }
 
   // ------- CHARACTERISTICS ------- //
 
@@ -102,11 +102,11 @@
   >
     <!-- // ------- GENDER ------- // -->
 
-    <Step locked={$lockedState}>
+    <!-- <Step locked={$lockedState}>
       <svelte:fragment slot="header">Geschlecht</svelte:fragment>
       <SelectGender />
       <hr class="!border-t-2" />
-    </Step>
+    </Step> -->
 
     <!-- // ------- NAME ------- // -->
     <!-- // ------- NAME ------- // -->
@@ -144,11 +144,11 @@
     <!-- // ------- AGE ------- // -->
     <!-- // ------- AGE ------- // -->
 
-    <Step locked={$lockedState}>
+    <!-- <Step locked={$lockedState}>
       <svelte:fragment slot="header">Alter</svelte:fragment>
       <SelectAge />
       <hr class="!border-t-2" />
-    </Step>
+    </Step> -->
 
     <!-- // ------- HOBBYS ------- // -->
     <!-- // ------- HOBBYS ------- // -->
@@ -156,7 +156,8 @@
 
     <Step locked={$lockedState}>
       <svelte:fragment slot="header">Hobbys</svelte:fragment>
-      <div class="selected">
+      <SelectHobbys />
+      <!-- <div class="selected">
         <p>{hobbys}</p>
       </div>
       <div class="button-group">
@@ -181,7 +182,7 @@
           <i class="fa-solid fa-check mr-2 confirm"></i>
           Confirm
         </button>
-      </div>
+      </div> -->
       <hr class="!border-t-2" />
     </Step>
 
