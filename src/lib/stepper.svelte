@@ -82,19 +82,19 @@
   >
     <!-- // ------- GENDER ------- // -->
 
-    <!-- <Step locked={$lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Geschlecht</svelte:fragment>
       <SelectGender />
       <hr class="!border-t-2" />
-    </Step> -->
+    </Step>
 
     <!-- // ------- NAME ------- // -->
 
-    <!-- <Step locked={$lockedState}>
+    <Step locked={$lockedState}>
       <svelte:fragment slot="header">Name</svelte:fragment>
       <SelectName />
       <hr class="!border-t-2" />
-    </Step> -->
+    </Step>
 
     <!-- // ------- AGE ------- // -->
 
