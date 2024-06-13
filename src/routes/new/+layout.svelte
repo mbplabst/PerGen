@@ -7,7 +7,9 @@
 </head>
 
 <h2 class="center">Erstelle hier ein neues Profil</h2>
-<ProfileStepper />
+<div class="max-width-container">
+  <ProfileStepper />
+</div>
 <slot />
 
 <style>

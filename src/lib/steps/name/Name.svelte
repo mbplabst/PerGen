@@ -12,6 +12,12 @@
   let customPreName = "";
   let customSurName = "";
 
+  if ($globalName === "Nicht ausgewählt") {
+    $lockedState = true;
+  } else {
+    $lockedState = false;
+  }
+
   // -- // -- // -- //
 
   function setGlobalName() {

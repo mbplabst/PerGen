@@ -78,7 +78,6 @@
     buttonBackLabel="Zurück"
     buttonComplete="variant-filled-primary"
     buttonCompleteLabel="Abschließen"
-    on:next={lock}
   >
     <!-- // ------- GENDER ------- // -->
 

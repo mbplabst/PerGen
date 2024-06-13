@@ -6,6 +6,12 @@
 
   let isVisible = false;
 
+  if ($globalGender === "Nicht ausgewählt") {
+    $lockedState = true;
+  } else {
+    $lockedState = false;
+  }
+
   function getRandomGender() {
     const randomIndex = Math.floor(Math.random() * genderList.length);
     $globalGender = genderList[randomIndex];

@@ -1,5 +1,11 @@
 <script>
   import { goto } from "$app/navigation";
+  import {
+    globalGender,
+    globalName,
+    globalAge,
+  } from "$lib/store/variables.js";
+
   export let savedProfilesAmount = 0;
 
   function linkCreateNew() {
@@ -22,6 +28,10 @@
     <p class="text">Here are your saved profiles</p>
     <slot></slot>
   {/if}
+  <p>
+    {$globalName}, {$globalAge},
+    {$globalGender},
+  </p>
 </div>
 
 <div class="center">

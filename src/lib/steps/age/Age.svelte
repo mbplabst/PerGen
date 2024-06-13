@@ -8,6 +8,12 @@
   let isVisible = false;
   let maxAge = 100;
 
+  if ($globalAge === "Nicht ausgewählt") {
+    $lockedState = true;
+  } else {
+    $lockedState = false;
+  }
+
   function setAge() {
     $globalAge = value.toString();
     $lockedState = false;
@@ -63,7 +69,6 @@
     </div>
   </div>
 {/if}
-
 
 <div class="button-group">
   <button
